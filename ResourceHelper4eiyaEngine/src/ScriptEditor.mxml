@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" label="eiyaScript Editor">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.eiyaScript.*;
+			import com.hurlant.eval.ByteLoader;
+			import com.hurlant.eval.CompiledESC;
+			import com.hurlant.eval.Debug;
+			import com.hurlant.eval.dump.ABCDump;
+			
+			import flash.display.*;
+			import flash.events.Event;
+			import flash.filesystem.*;
+			import flash.geom.Rectangle;
+			import flash.net.FileFilter;
+			import flash.ui.Keyboard;
+			import flash.utils.ByteArray;
+			
+			import mx.controls.Alert;
+			import mx.core.BitmapAsset;
+			import mx.events.ItemClickEvent;
+			import mx.utils.Base64Decoder;
+			import mx.utils.Base64Encoder;
+			
+			private function show_status(status:String, level:int = 0):void {
+				lbStatus.text = status;
+				switch (level) {
+					case 0:
+						
+						break;
+				}
+			}
+			
+			
+			protected function tScript_onChange(event:Event):void {
+				
+				
+			}
+			
+			protected function bBuild_onClick(event:MouseEvent):void {
+				lbStatus.text = "";
+				var b:Boolean = true;
+				var strs:Array = tScript.text.split(/\u000d/);
+				var scri:Vector.<String> = new Vector.<String>();
+				var str:String = ""
+				for (var i:int;i<strs.length;i++) {
+					scri.push(strs[i]);
+					if (!Syntax.match_line(strs[i])) {
+						str = str.concat("Syntax Error at Line#" + (i+1).toString(),"\n");
+						b = false;
+					}
+						
+				}
+				if (b) {
+					try{
+						var e:Eiya = new Eiya();
+						var out:String="";
+						e.loadScript(scri);
+						var d:Date = new Date();
+						out = out.concat(d.fullYear,d.month,d.date,d.hours,d.minutes,d.seconds,d.milliseconds);
+						var file:File = new File("D:\\CoDinG\\bilibiliGame\\log\\".concat(out,".txt"));
+						var fs:FileStream = new FileStream();						
+						fs.open(file,FileMode.WRITE);						
+						fs.position = 0;						
+						fs.writeUTFBytes(e.traceAll());
+						fs.close();
+						tOut.text = e.Output;
+						lbStatus.text = "OK."
+					} catch (err:Error) {
+						Alert.show(err.message);	
+						trace(err.getStackTrace());
+						lbStatus.text = "Error Occurs."
+					}
+				} else {
+					Alert.show(str);
+					lbStatus.text = "Error Occurs."
+				}
+				
+			}
+			
+		]]>
+	</fx:Script>
+	<fx:Style>
+		@namespace mx "library://ns.adobe.com/flex/mx";
+		#tScript{
+			font-family: "Consolas";
+			font-size:10;
+		}
+		#tOut{
+			font-family: "Consolas";
+			font-size:10;
+		}
+	</fx:Style>
+	<mx:Canvas left="10" right="10" height="100%">
+		<mx:Canvas width="50%" top="0" left="0" bottom="30">
+			<mx:TextArea id="tScript" width="100%" height="100%" change="tScript_onChange(event)"/>
+		</mx:Canvas>
+		<mx:Canvas width="50%" height="20" left="0" bottom="5">
+			<mx:Label id="lbStatus" width="100%" height="100%" left="0" top="0" text="OK" />
+		</mx:Canvas>
+		<mx:Canvas width="49%" height="100%" right="0">
+			<mx:Canvas width="100%" top="0" bottom="30" >
+				<mx:TextArea width="100%" height="100%" id="tOut" />
+			</mx:Canvas>
+			<mx:Button id="bBuild" label="Build" right="0" height="20" width="100" bottom="5" click="bBuild_onClick(event)" />
+		</mx:Canvas>
+	</mx:Canvas>
+	
+</mx:Canvas>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx" 
+		   width="100%"
+		   height="100%"
+		   label="Base64 Convertor"
+		   creationComplete="cBase64Convertor_creationComplete(event)"
+		   initialize="init()">
+	
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import flash.display.*;
+			import flash.filesystem.*;
+			import flash.net.*;
+			
+			import mx.controls.Alert;
+			import mx.core.BitmapAsset;
+			import mx.core.WindowedApplication;
+			import mx.events.FlexEvent;
+			import mx.utils.Base64Decoder;
+			import mx.utils.Base64Encoder;
+			
+			
+			private var base64_filestream:ByteArray = new ByteArray();
+
+			
+			private var swf_start:Array = 
+				[
+					0x46, 0x57, 0x53, 0x0a, 								// FWS, Version 10
+					0xff, 0xff, 0xff, 0xff, 								// File length
+					0x78, 0x00, 0x03, 0xe8, 0x00, 0x00, 0x0b, 0xb8, 0x00,	// size [Rect 0 0 8000 6000] 
+					0x00, 0x0c, 0x01, 0x00, 								// 16bit le frame rate 12, 16bit be frame count 1 
+					0x44, 0x11,												// Tag type=69 (FileAttributes), length=4  
+					0x08, 0x00, 0x00, 0x00
+				];
+			
+			private var abc_header:Array = 
+				[
+					0x3f, 0x12,												// Tag type=72 (DoABC), length=next.
+					//0xff, 0xff, 0xff, 0xff 								// ABC length, not included in the copy. 
+				];
+			
+			private var swf_end:Array =
+				// the commented out code tells the player to instance a class "test" as a Sprite.
+				[/*0x09, 0x13, 0x01, 0x00, 0x00, 0x00, 0x74, 0x65, 0x73, 0x74, 0x00, */ 0x40, 0x00]; // Tag type=1 (ShowFrame), length=0
+			
+			
+			/**
+			 * Wraps the ABC bytecode inside the simplest possible SWF file, for
+			 * the purpose of allowing the player VM to load it.
+			 *  
+			 * @param bytes: an ABC file
+			 * @return a SWF file 
+			 * 
+			 */
+			public function wrapInSWF(bytes:Array):ByteArray {
+				// wrap our ABC bytecodes in a SWF.
+				var out:ByteArray = new ByteArray;
+				out.endian = Endian.LITTLE_ENDIAN;
+				for (var i:int=0;i<swf_start.length;i++) {
+					out.writeByte(swf_start[i]);
+				}
+				for (i=0;i<bytes.length;i++) {
+					var abc:ByteArray = bytes[i];
+					for (var j:int=0;j<abc_header.length;j++) {
+						out.writeByte(abc_header[j]);
+					}
+					// set ABC length
+					out.writeInt(abc.length);
+					out.writeBytes(abc, 0, abc.length);
+				}
+				for (i=0;i<swf_end.length;i++) {
+					out.writeByte(swf_end[i]);
+				}
+				// set SWF length
+				out.position = 4;
+				out.writeInt(out.length);
+				// reset
+				out.position = 0;
+				return out;
+			}
+			
+			
+			
+			
+			
+			
+			private function init():void{
+				this.enabled = false;
+			}
+			
+			protected function bEncode_clickHandler(event:MouseEvent):void{
+				var file_to_open:File = new File();
+				var file_filter:FileFilter = new FileFilter("Supported File", "*.jpg;*.png;*.gif;*.abc;*.swf");
+				try {
+					file_to_open.browseForOpen("Choose a File to Encode", [file_filter]);
+					file_to_open.addEventListener(Event.SELECT, file_chosen);
+				} catch (err:Error) {
+					Alert.show(err.toString(),"ERROR");
+				}				
+			}
+			
+			public static function string_filter(ori:String):String {
+				var result:String = "";
+				for (var i:int=0; i<ori.length;i++) {
+					
+					if (i != 0) {
+						if (ori.charAt(i-1) == '/' && ori.charAt(i) == 'n') {
+							result += '\n';
+						}
+					}
+					//if (ori.charAt(i) != '\n')
+						result += ori.charAt(i);
+				}
+				return result;
+			}
+			
+			private function file_chosen (event:Event):void {
+				
+				var file_to_open:File = event.target as File;
+				
+				if (file_to_open.extension == "abc"){
+					
+					var fs:FileStream = new FileStream();
+					fs.open(file_to_open,FileMode.READ);
+					base64_filestream = new ByteArray();
+					fs.readBytes(base64_filestream,0,file_to_open.size);
+					var ba:ByteArray = wrapInSWF([base64_filestream]);
+					ba.deflate();
+					fs.close();
+					
+					var enc:Base64Encoder = new Base64Encoder();
+					enc.encodeBytes(ba,0,ba.length);
+					taBase64.text = string_filter(enc.toString());
+					
+					return;
+				}
+				
+				if (file_to_open.extension == "swf"){
+					var fs2:FileStream = new FileStream();
+					fs2.open(file_to_open,FileMode.READ);
+					base64_filestream = new ByteArray();
+					fs2.readBytes(base64_filestream,0,file_to_open.size);
+					base64_filestream.deflate();
+					base64_filestream.position = 0;
+					var enc2:Base64Encoder = new Base64Encoder();
+					enc2.encodeBytes(base64_filestream,0,base64_filestream.length);
+					taBase64.text = string_filter(enc2.toString());
+					fs2.close();
+					return;
+				}
+				
+				
+				var loader:Loader = new Loader();
+				
+				loader.contentLoaderInfo.addEventListener(Event.COMPLETE, function (e:Event):void {
+					var bmpData:BitmapData = Bitmap(e.target.content).bitmapData;
+					var rect:Rectangle = bmpData.rect;
+					var pix_arr:ByteArray = bmpData.getPixels(rect);
+					pix_arr.position = 0;
+					var bd:BitmapData = new BitmapData(rect.width,rect.height);
+					bd.setPixels(rect,pix_arr);
+					imgShow.source = new BitmapAsset(bd);
+					if (chCompress.selected) pix_arr.deflate();
+					var enc:Base64Encoder = new Base64Encoder();
+					enc.encodeBytes(pix_arr);
+					taBase64.text = string_filter(enc.toString());
+				});
+				loader.load(new URLRequest(file_to_open.url));
+			}
+			
+			
+			protected function bDecode_click(event:MouseEvent):void {
+				this.imgShow.removeChildren();
+				var b64d:Base64Decoder = new Base64Decoder();
+				b64d.decode(taBase64.text);
+				this.base64_filestream = b64d.toByteArray();
+				if (chCompress.selected) base64_filestream.inflate();
+				
+				var file_to_save:File = new File();
+				try {
+					file_to_save.browseForSave("Save As");
+					file_to_save.addEventListener(Event.SELECT, file_save);
+				} catch (err:Error) {
+					Alert.show(err.toString(),"ERROR");
+				}				
+			}
+			
+			private function file_save(event:Event):void {
+				var file_to_save:File = event.target as File;
+				var fs:FileStream = new FileStream();
+				fs.open(file_to_save,FileMode.WRITE);
+				fs.writeBytes(base64_filestream,0,base64_filestream.length);
+				Alert.show("Saved OK");
+			}
+			
+			protected function cBase64Convertor_creationComplete(event:FlexEvent):void {
+				this.enabled = true;
+			}
+			
+		]]>
+	</fx:Script>
+	<mx:Canvas left="10" right="10" bottom="0" top="0">
+		<mx:Image id="imgShow" left="0" top="0" bottom="0" width="400" maintainAspectRatio="true" scaleContent="false"  />
+		<mx:TextArea id="taBase64" left="420" right="0" top="0" bottom="40" />
+		<mx:CheckBox id="chCompress" right="210" width="100" height="20" bottom="10" selected="true" label="Compress" />
+		<mx:Button id="bEncode" right="130" height="20" bottom="10" width="70" label="Encode" click="bEncode_clickHandler(event)" />
+		<mx:Button id="bDecode" right="0" width="120" height="20" bottom="10" label="DecodeToFile" click="bDecode_click(event)" />
+	</mx:Canvas>
+	
+</mx:Canvas>

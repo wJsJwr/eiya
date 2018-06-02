@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%"
+		   label="Inject Code Generator">
+	
+	<fx:Script>
+		<![CDATA[
+			import com.eiyaScript.*;
+			import com.hurlant.eval.ByteLoader;
+			import com.hurlant.eval.CompiledESC;
+			
+			import flash.display.*;
+			import flash.filesystem.*;
+			
+			import mx.utils.Base64Encoder;
+			import mx.controls.Alert;
+			
+			private var esc:CompiledESC = new CompiledESC();
+			
+			protected function bGen_onClick(event:MouseEvent):void {
+				try{
+					var bytes:ByteArray = esc.eval(this.taCode.text);
+					if (chWrap.selected) {
+						bytes = ByteLoader.wrapInSWF([bytes]);
+					}
+					var enc:Base64Encoder = new Base64Encoder();
+					bytes.deflate();
+					bytes.position = 0;
+					enc.encodeBytes(bytes,0,bytes.length);
+					taOutput.text = Base64Convertor.string_filter(enc.toString());		
+				}catch(e:Error){
+					Alert.show(e.message);
+				}				
+			}
+			
+		]]>
+	</fx:Script>
+	<mx:Canvas left="10" right="10" height="100%">
+		<mx:Canvas left="0" top="0" width="50%" bottom="30">
+			<mx:Label text="Source Code Here" width="100%" height="20" top="0" />
+			<mx:TextArea id="taCode" width="100%" top="20" bottom="0"/>
+		</mx:Canvas>
+		<mx:Canvas right="0" top="0" width="49%" bottom="30">
+			<mx:TextArea id="taOutput" width="100%" height="100%" />
+		</mx:Canvas>
+		<mx:CheckBox id="chWrap" label="Wrap swf" width="100" right="160" bottom="5" selected="true" />
+		<mx:Button id="bGen" label="Generate bytecode" width="150" right="0" bottom="5" click="bGen_onClick(event)" />
+	</mx:Canvas>
+	
+	
+</mx:Canvas>

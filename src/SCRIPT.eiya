@@ -1,0 +1,2352 @@
+###############
+#@f1540
+#boss go on
+
+$wb as mon
+$wbsbmp as bmp
+$wbsbmp.setRect 37,60
+$wbsbmp.setPoint 18,30
+###############
+# 0 -> 1.png(bul)
+
+$wbb[3] as bmp 
+$wbb[0].setRect 6,12
+$wbb[0].setPoint 3,6
+
+# 1 -> 11.png(mon)
+$wbb[1].setRect 19,19
+$wbb[1].setPoint 10,10
+
+# 2 -> 5.png(bul)
+$wbb[2].setRect 12,12
+$wbb[2].setPoint 6,6
+
+# 3.png
+$wbblueb as bmp
+$wbblueb.setRect 12,12
+$wbblueb.setPoint 6,6
+
+#11.png
+$wbbigpb as bmp
+$wbbigpb.setRect 50,50
+$wbbigpb.setPoint 25,25
+
+#6.png
+$wbredb as bmp
+$wbredb.setRect 12,12
+$wbredb.setPoint 6,6
+
+################
+# tsukaima
+$wtsu[4] as mon
+$wtsu.setBmp $wbb[1]
+$wtsu.setLife 2147483
+$wtsu.setHitRange 0
+$wtsu2[4] as mon
+$wtsu2.setBmp $wbb[1]
+$wtsu2.setLife 2147483
+$wtsu2.setHitRange 0
+$wtsu3[3] as mon
+$wtsu3.setBmp $wbb[1]
+$wtsu3.setLife 2147483
+$wtsu3.setHitRange 0
+$wtsu4[3] as mon
+$wtsu4.setBmp $wbb[1]
+$wtsu4.setLife 2147483
+$wtsu4.setHitRange 0
+$wtsu5[6] as mon
+$wtsu5.setBmp $wbb[1]
+$wtsu5.setLife 2147483
+$wtsu5.setHitRange 0
+$wtsu6[12] as mon
+$wtsu6.setBmp $wbb[1]
+$wtsu6.setLife 2147483
+$wtsu6.setHitRange 0
+
+################
+# bullet
+$wbu[2] as bul
+$wbu[0].setBmp $wbb[0]
+$wbu[0].setHitRange 3
+$wbu[0].setSpeed 6
+$wbu[0].isRound 0
+
+$wbu[1].setBmp $wbb[2]
+$wbu[1].setHitRange 6
+$wbu[1].setSpeed 6
+
+$wbblue as bul
+$wbblue.setBmp $wbblueb
+$wbblue.setHitRange 6
+$wbblue.setSpeed 7
+
+$wbbigp as bul
+$wbbigp.setBmp $wbbigpb
+$wbbigp.setHitRange 10
+$wbbigp.setSpeed 7
+
+$wbred as bul
+$wbred.setBmp $wbredb
+$wbred.setHitRange 6
+$wbred.setSpeed 7
+
+# need to be modified
+$wb.setBmp $wbsbmp
+$wb.setLife 1000000
+$wb.setHitRange 18
+$wb.setBonus 123456,10,5,1
+
+#monster picture
+
+$green as bmp
+$blue as bmp
+$red as bmp
+$yellow as bmp
+
+$bos as bmp
+$redcircle as bmp
+$yellowcircle as bmp
+
+#bullet picture
+
+$redbullet as bmp
+$redbul as bmp
+$bluebullet as bmp
+$bluebul as bmp
+$whitebullet as bmp
+$redcir as bmp
+$bluearrow as bmp
+$laserpic as bmp
+
+################################
+#picture set
+
+$laserpic.setRect 7,75
+$laserpic.setPoint 4,70
+
+$green.setRect 19,20
+$green.setPoint 10,10
+
+
+$blue.setRect 19,20
+$blue.setPoint 10,10
+
+$red.setRect 19,20
+$red.setPoint 10,10
+
+$redcircle.setRect 19,19
+$redcircle.setPoint 10,10
+
+$yellow.setRect 19,23
+$yellow.setPoint 10,11
+
+$yellowcircle.setRect 19,19
+$yellowcircle.setPoint 10,10
+
+$redbullet.setRect 6,12
+$redbullet.setPoint 3,6
+
+$bluebullet.setRect 12,12
+$bluebullet.setPoint 6,6
+
+$redbul.setRect 12,12
+$redbul.setPoint 6,6
+
+$bluebul.setRect 6,12
+$bluebul.setPoint 3,6
+
+$whitebullet.setRect 6,6
+$whitebullet.setPoint 3,3
+
+$bluearrow.setRect 11,12
+$bluearrow.setPoint 6,6
+
+$redcir.setRect 50,50
+$redcir.setPoint 25,25
+
+$bos.setRect 37,60
+$bos.setPoint 18,30
+##########################
+#bullet set
+
+$laser as bul
+$laser.setBmp $laserpic
+$laser.setHitRange 4
+$laser.setSpeed 7
+
+$rb as bul
+$rb.setBmp $redbullet
+$rb.setHitRange 4
+$rb.setSpeed 6
+
+$rba as bul
+$rba.setBmp $redbullet
+$rba.setHitRange 4
+$rba.setSpeed 5
+
+$bb as bul
+$bb.setBmp $bluebullet
+$bb.setHitRange 6
+$bb.setSpeed 5
+
+$bba as bul
+$bba.setBmp $bluebullet
+$bba.setHitRange 6
+$bba.setSpeed 6
+
+
+$rbb as bul
+$rbb.setBmp $redbul
+$rbb.setHitRange 6
+$rbb.setSpeed 5
+
+$bbul as bul
+$bbul.setBmp $bluebul
+$bbul.setHitRange 4
+$bbul.setSpeed 6
+
+$hb as bul
+$hb.setBmp $whitebullet
+$hb.setHitRange 3
+$hb.setSpeed 7
+
+
+$barow as bul
+$barow.setBmp $bluearrow
+$barow.setHitRange 3
+$barow.setSpeed 8
+
+$barowb as bul
+$barowb.setBmp $bluearrow
+$barowb.setHitRange 3
+$barowb.setSpeed 7
+
+$rcir as bul
+$rcir.setBmp $redcir
+$rcir.setHitRange 25
+$rcir.setSpeed 7
+
+#monster set
+
+$ga[3] as mon
+$ga.setBmp $green
+$ga.setLife 6
+$ga.setHitRange 10
+$ga.setBonus 2000,2,0,0
+
+
+
+$ba as mon
+$ba.setBmp $blue
+$ba.setLife 6
+$ba.setHitRange 10
+$ba.setBonus 2500,2,2,0
+
+$bc as $ba
+$bd as $ba
+$be as $ba
+
+$bf[3] as mon
+$bf.setBmp $blue
+$bf.setLife 10
+$bf.setHitRange 10
+$bf.setBonus 2500,0,5,0
+
+$bg[3] as mon
+$bg.setBmp $blue
+$bg.setLife 18
+$bg.setHitRange 10
+$bg.setBonus 2800,5,0,0
+
+$bh[3] as mon
+$bh.setBmp $blue
+$bh.setLife 18
+$bh.setHitRange 10
+$bh.setBonus 2800,5,0,0
+
+
+
+$gb[2] as mon
+$gb.setBmp $green
+$gb.setLife 10
+$gb.setHitRange 14
+$gb.setBonus 2500,5,0,0
+
+$gc[2] as mon
+$gc.setBmp $green
+$gc.setLife 10
+$gc.setHitRange 14
+$gc.setBonus 2500,5,0,0
+
+$gd[2] as mon
+$gd.setBmp $green
+$gd.setLife 10
+$gd.setHitRange 14
+$gd.setBonus 2500,0,5,0
+
+$ge[3] as mon
+$ge.setBmp $green
+$ge.setLife 14
+$ge.setHitRange 10
+$ge.setBonus 2500,0,5,0
+
+$ra[3] as mon
+$ra.setBmp $red
+$ra.setLife 14
+$ra.setHitRange 10
+$ra.setBonus 3000,10,0,0
+
+$rca[3] as mon
+$rca.setBmp $redcircle
+$rca.setLife 6
+$rca.setHitRange 10
+$rca.setBonus 1000,0,0,0
+
+$rcb[3] as mon
+$rcb.setBmp $redcircle
+$rcb.setLife 6
+$rcb.setHitRange 10
+$rcb.setBonus 1000,0,0,0
+
+$rc[3] as mon
+$rc.setBmp $red
+$rc.setLife 14
+$rc.setHitRange 10
+$rc.setBonus 3000,10,0,0
+
+$rcc[3] as mon
+$rcc.setBmp $redcircle
+$rcc.setLife 6
+$rcc.setHitRange 10
+$rcc.setBonus 1000,0,0,0
+
+$rcd[3] as mon
+$rcd.setBmp $redcircle
+$rcd.setLife 6
+$rcd.setHitRange 10
+$rcd.setBonus 1000,0,0,0
+
+$yca[10] as mon
+$yca.setBmp $yellowcircle
+$yca.setLife 2
+$yca.setHitRange 10
+$yca.setBonus 300,0,0,0
+
+$ya as mon
+$ya.setBmp $yellow
+$ya.setLife 30
+$ya.setHitRange 10
+$ya.setBonus 5000,0,20,0
+
+$ycb[10] as mon
+$ycb.setBmp $yellowcircle
+$ycb.setLife 2
+$ycb.setHitRange 10
+$ycb.setBonus 300,0,0,0
+
+$yb as mon
+$yb.setBmp $yellow
+$yb.setLife 30
+$yb.setHitRange 10
+$yb.setBonus 5000,0,20,0
+
+$yc as mon
+$yc.setBmp $yellow
+$yc.setLife 30
+$yc.setHitRange 10
+$yc.setBonus 5000,0,20,0
+
+$ycc[10] as mon
+$ycc.setBmp $yellowcircle
+$ycc.setLife 2
+$ycc.setHitRange 10
+$ycc.setBonus 300,0,0,0
+
+$ycd[10] as mon
+$ycd.setBmp $yellowcircle
+$ycd.setLife 2
+$ycd.setHitRange 10
+$ycd.setBonus 300,0,0,0
+
+$yd as mon
+$yd.setBmp $yellow
+$yd.setLife 30
+$yd.setHitRange 10
+$yd.setBonus 5000,0,20,0
+
+####################
+$gf[2] as mon
+$gf.setBmp $green
+$gf.setLife 14
+$gf.setHitRange 10
+$gf.setBonus 2000,3,2,0
+
+$boss as mon
+$boss.setBmp $bos
+$boss.setLife 100000
+$boss.setHitRange 18
+$boss.setBonus 10000,50,50,0
+
+$zca[4] as mon
+$zca.setBmp $yellowcircle
+$zca.setLife 12
+$zca.setHitRange 10
+$zca.setBonus 1200,0,0,0
+
+$zcb[4] as mon
+$zcb.setBmp $yellowcircle
+$zcb.setLife 12
+$zcb.setHitRange 10
+$zcb.setBonus 1200,0,0,0
+
+$zcc[4] as mon
+$zcc.setBmp $yellowcircle
+$zcc.setLife 12
+$zcc.setHitRange 10
+$zcc.setBonus 1200,0,0,0
+
+$zcd[4] as mon
+$zcd.setBmp $yellowcircle
+$zcd.setLife 12
+$zcd.setHitRange 10
+$zcd.setBonus 1200,0,0,0
+
+$zce[4] as mon
+$zce.setBmp $yellowcircle
+$zce.setLife 12
+$zce.setHitRange 10
+$zce.setBonus 1200,0,0,0
+
+$zcf[4] as mon
+$zcf.setBmp $yellowcircle
+$zcf.setLife 12
+$zcf.setHitRange 10
+$zcf.setBonus 1200,0,0,0
+
+$zcg[4] as mon
+$zcg.setBmp $yellowcircle
+$zcg.setLife 12
+$zcg.setHitRange 10
+$zcg.setBonus 1200,0,0,0
+
+$zch[4] as mon
+$zch.setBmp $yellowcircle
+$zch.setLife 12
+$zch.setHitRange 10
+$zch.setBonus 1200,0,0,0
+
+$zda as mon
+$zda.setBmp $yellowcircle
+$zda.setLife 20000
+$zda.setHitRange 0
+$zda.setBonus 0,0,0,0
+
+$zdb as mon
+$zdb.setBmp $yellowcircle
+$zdb.setLife 20000
+$zdb.setHitRange 0
+$zdb.setBonus 0,0,0,0
+
+$zdc as mon
+$zdc.setBmp $yellowcircle
+$zdc.setLife 20000
+$zdc.setHitRange 0
+$zdc.setBonus 0,0,0,0
+
+$zea as mon
+$zea.setBmp $yellowcircle
+$zea.setLife 20000
+$zea.setHitRange 0
+$zea.setBonus 0,0,0,0
+
+$zeb as mon
+$zeb.setBmp $yellowcircle
+$zeb.setLife 20000
+$zeb.setHitRange 0
+$zeb.setBonus 0,0,0,0
+
+$zec as mon
+$zec.setBmp $yellowcircle
+$zec.setLife 20000
+$zec.setHitRange 0
+$zec.setBonus 0,0,0,0
+
+$zfa as mon
+$zfa.setBmp $yellowcircle
+$zfa.setLife 20000
+$zfa.setHitRange 0
+$zfa.setBonus 0,0,0,0
+
+$zfb as mon
+$zfb.setBmp $yellowcircle
+$zfb.setLife 20000
+$zfb.setHitRange 0
+$zfb.setBonus 0,0,0,0
+
+$zfc as mon
+$zfc.setBmp $yellowcircle
+$zfc.setLife 20000
+$zfc.setHitRange 0
+$zfc.setBonus 0,0,0,0
+
+$zfd as mon
+$zfd.setBmp $yellowcircle
+$zfd.setLife 20000
+$zfd.setHitRange 0
+$zfd.setBonus 0,0,0,0
+
+######
+
+$zdaz as mon
+$zdaz.setBmp $yellowcircle
+$zdaz.setLife 20000
+$zdaz.setHitRange 0
+$zdaz.setBonus 0,0,0,0
+
+$zdbz as mon
+$zdbz.setBmp $yellowcircle
+$zdbz.setLife 20000
+$zdbz.setHitRange 0
+$zdbz.setBonus 0,0,0,0
+
+$zdcz as mon
+$zdcz.setBmp $yellowcircle
+$zdcz.setLife 20000
+$zdcz.setHitRange 0
+$zdcz.setBonus 0,0,0,0
+
+$zeaz as mon
+$zeaz.setBmp $yellowcircle
+$zeaz.setLife 20000
+$zeaz.setHitRange 0
+$zeaz.setBonus 0,0,0,0
+
+$zebz as mon
+$zebz.setBmp $yellowcircle
+$zebz.setLife 20000
+$zebz.setHitRange 0
+$zebz.setBonus 0,0,0,0
+
+$zecz as mon
+$zecz.setBmp $yellowcircle
+$zecz.setLife 20000
+$zecz.setHitRange 0
+$zecz.setBonus 0,0,0,0
+
+$zfaz as mon
+$zfaz.setBmp $yellowcircle
+$zfaz.setLife 20000
+$zfaz.setHitRange 0
+$zfaz.setBonus 0,0,0,0
+
+$zfbz as mon
+$zfbz.setBmp $yellowcircle
+$zfbz.setLife 20000
+$zfbz.setHitRange 0
+$zfbz.setBonus 0,0,0,0
+
+$zfcz as mon
+$zfcz.setBmp $yellowcircle
+$zfcz.setLife 20000
+$zfcz.setHitRange 0
+$zfcz.setBonus 0,0,0,0
+
+$zfdz as mon
+$zfdz.setBmp $yellowcircle
+$zfdz.setLife 20000
+$zfdz.setHitRange 0
+$zfdz.setBonus 0,0,0,0
+
+
+#######################
+
+#3个绿色
+
+
+$f= 136
+$n= 0
+
+L01:
+
+$ga[$n].setPos $f,150,-11
+
+$f.+ 1
+$ga[$n].move $f,150,371,2
+
+$f.+ 10
+$a= 0
+L02:
+$ga[$n].shootPolar $f,$rb,$a
+$a.+ 12
+goto L02 when $a<360
+
+$f.+ 190
+$ga[$n].die $f
+
+$f.- 176
+$n.+ 1
+
+goto L01 when $n<=2
+
+
+
+##################
+
+#2个蓝色
+
+
+$f=206
+$n=0
+
+$ba.setPos $f,100,-11
+$bc.setPos $f,200,-11
+
+$f.+ 1
+$ba.move $f,100,89,2
+$bc.move $f,200,89,2
+
+
+$f.+ 51
+$ba.move $f,311,89,2
+$bc.move $f,-11,89,2
+
+
+$c=0
+L07:
+$b=0
+
+L06:
+$a=0
+
+L05:
+$ba.shootTrace $f,$rb,$a
+$bc.shootTrace $f,$rb,$a
+$a.+ 3
+goto L05 when $a<=3
+
+$b.+ 1
+$f.+ 5
+goto L06 when $b<3
+
+$c.+ 1
+$f.+ 40
+goto L07 when $c<3
+
+$f.+ 32
+$ba.die $f
+$bc.die $f
+
+
+############
+
+#2个蓝色
+
+$f=248
+
+$bd.setPos $f,50,-11
+$be.setPos $f,250,-11
+
+$f.+ 1
+$bd.move $f,50,89,3
+$be.move $f,250,89,3
+
+$f.+ 51
+$bd.move $f,311,89,2
+$be.move $f,-11,89,2
+
+$c=0
+L11:
+$b=0
+
+L10:
+$a=0
+
+L09:
+$bd.shootTrace $f,$rb,$a
+$be.shootTrace $f,$rb,$a
+$a.+ 3
+goto L09 when $a<=3
+
+$b.+ 1
+$f.+ 5
+goto L10 when $b<3
+
+$c.+ 1
+$f.+ 40
+goto L11 when $c<3
+
+$f.+ 57
+$bd.die $f
+$be.die $f
+
+
+##########################
+
+#3个蓝色
+
+$f=274
+$n=0
+$x=50
+
+L16:
+
+$bf[$n].setPos $f,$x,-11
+
+$f.+ 1
+$bf[$n].move $f,$x,89,3
+
+$f.+ 51
+$bf[$n].move $f,311,89,2
+
+
+$c=0
+L15:
+$b=0
+L14:
+$a=0
+
+L13:
+$bf[$n].shootTrace $f,$rb,$a
+$a.+ 3
+goto L13 when $a<=3
+
+$b.+ 1
+$f.+ 5
+goto L14 when $b<3
+
+$c.+ 1
+$f.+ 15
+goto L15 when $c<3
+
+$f.+ 57
+$bf[$n].die $f
+
+$f.- 114
+$n.+ 1
+$x.+ 25
+goto L16 when $n<3
+
+####################
+
+#4个绿色
+
+$f= 250
+$n= 0
+L19:
+$gb[$n].setPos $f,50,-11
+$gc[$n].setPos $f,200,-11
+
+$f.+ 1
+$gb[$n].move $f,50,371,2
+$gc[$n].move $f,200,371,2
+
+$f.+ 90
+
+
+$b=0
+
+L18:
+
+$a= 0
+L20:
+$gb[$n].shootPolar $f,$bb,$a
+$gc[$n].shootPolar $f,$bb,$a
+$a.+ 45
+goto L20 when $a<=315
+$f.+ 1
+$a= 22
+L17:
+$gb[$n].shootPolar $f,$bba,$a
+$gc[$n].shootPolar $f,$bba,$a
+$a.+ 45
+goto L17 when $a<=337
+
+$f.+ 30
+$b.+ 1
+goto L18 when $b<2
+
+
+
+$f.+ 42
+$gb[$n].die $f
+$gc[$n].die $f
+$f.- 173
+$n.+ 1
+
+goto L19 when $n<=1
+
+
+#################
+#3个红色
+$f=430
+$n=0
+
+L28:
+$ra[$n].setPos $f,50,-11
+$rca[$n].setPos $f,25,-11
+$rcb[$n].setPos $f,75,-11
+
+$f.+ 1
+$ra[$n].move $f,50,79,2
+$rca[$n].move $f,25,79,2
+$rcb[$n].move $f,75,79,2
+
+$f.+ 46
+
+$a=0
+
+L21:
+$rca[$n].shootPolar $f,$bba,0
+$rcb[$n].shootPolar $f,$bba,0
+$f.+ 4
+$a.+ 1
+goto L21 when $a<3
+
+$f.- 11
+
+$a= 0
+L22:
+$ra[$n].shootPolar $f,$rba,$a
+$a.+ 30
+goto L22 when $a<360
+
+$a= 0
+L23:
+$ra[$n].shootPolar $f,$rb,$a
+$a.+ 30
+goto L23 when $a<360
+
+$b=0
+
+$f.+ 2
+L25:
+$a=0
+
+
+L24:
+$rca[$n].shootTrace $f,$rb,$a
+$rcb[$n].shootTrace $f,$rb,$a
+$a.+ 8
+goto L24 when $a<=8
+
+$b.+ 1
+$f.+ 5
+goto L25 when $b<2
+
+$ra[$n].move $f,336,150,2
+$rca[$n].move $f,311,150,2
+$rcb[$n].move $f,361,150,2
+
+$f.+ 150
+$ra[$n].die $f
+$rca[$n].die $f
+$rcb[$n].die $f
+
+$f.- 147
+$n.+ 1
+goto L28 when $n<3
+
+#################
+
+#3个红色
+$f=457
+$n=0
+
+L36:
+$rc[$n].setPos $f,250,-11
+$rcc[$n].setPos $f,225,-11
+$rcd[$n].setPos $f,275,-11
+
+$f.+ 1
+$rc[$n].move $f,250,79,2
+$rcc[$n].move $f,225,79,2
+$rcd[$n].move $f,275,79,2
+
+$f.+ 46
+
+$a=0
+
+L29:
+$rcc[$n].shootPolar $f,$bba,0
+$rcd[$n].shootPolar $f,$bba,0
+$f.+ 4
+$a.+ 1
+goto L29 when $a<3
+
+$f.- 11
+
+$a= 0
+L30:
+$rc[$n].shootPolar $f,$rba,$a
+$a.+ 30
+goto L30 when $a<360
+
+$a= 0
+L31:
+$rc[$n].shootPolar $f,$rb,$a
+$a.+ 30
+goto L31 when $a<360
+
+$b=0
+$f.+ 2
+L33:
+$a=0
+
+L32:
+$rcc[$n].shootTrace $f,$rb,$a
+$rcd[$n].shootTrace $f,$rb,$a
+$a.+ 8
+goto L32 when $a<=8
+
+$b.+ 1
+$f.+ 5
+goto L33 when $b<2
+
+$rc[$n].move $f,-36,150,2
+$rcc[$n].move $f,-11,150,2
+$rcd[$n].move $f,-61,150,2
+
+$f.+ 150
+$rc[$n].die $f
+$rcc[$n].die $f
+$rcd[$n].die $f
+
+$f.- 147
+$n.+ 1
+goto L36 when $n<3
+
+#######################
+#2个小绿
+
+$f=535
+$n= 0
+L39:
+$gd[$n].setPos $f,100,-11
+
+$f.+ 1
+$gd[$n].move $f,100,371,2
+
+$f.+ 90
+
+$b=0
+
+L38:
+
+$a= 0
+L40:
+$gd[$n].shootPolar $f,$bb,$a
+
+$a.+ 45
+goto L40 when $a<=315
+$f.+ 1
+$a= 22
+L37:
+$gd[$n].shootPolar $f,$bba,$a
+
+$a.+ 45
+goto L37 when $a<=337
+
+$f.+ 30
+$b.+ 1
+goto L38 when $b<2
+
+$f.+ 42
+$gd[$n].die $f
+
+$f.- 173
+$n.+ 1
+
+goto L39 when $n<=1
+####################
+
+#3个小绿
+
+$f=645
+$n= 0
+L43:
+$ge[$n].setPos $f,150,-11
+
+$f.+ 1
+$ge[$n].move $f,150,371,2
+
+$f.+ 90
+
+$b=0
+
+L42:
+
+$a= 0
+L44:
+$ge[$n].shootPolar $f,$bb,$a
+
+$a.+ 45
+goto L44 when $a<=315
+
+$f.+ 1
+$a= 22
+L41:
+$ge[$n].shootPolar $f,$bba,$a
+
+$a.+ 45
+goto L41 when $a<=337
+
+$f.+ 30
+$b.+ 1
+goto L42 when $b<2
+
+$f.+ 42
+$ge[$n].die $f
+
+$f.- 173
+$n.+ 1
+
+goto L43 when $n<3
+
+#####################
+#1个小黄
+
+$f=730
+$ya.setPos $f,250,-11
+
+$f.+ 1
+$ya.move $f,250,59,2
+
+$f.+ 36
+
+L46:
+
+$a= 0
+
+L45:
+$ya.shootPolar $f,$bb,$a
+$a.+ 30
+goto L45 when $a<360
+
+$f.+ 30
+$ya.shootTrace $f,$hb,0
+
+$f.+ 30
+goto L46 when $f<960
+
+$ya.move $f,250,-11,2
+
+$f.+ 36
+$ya.die $f
+
+####################
+#20个黄圆
+$f=770
+$n=0
+
+L47:
+$yca[$n].setPos $f,250,59
+
+$f.+ 1
+$yca[$n].move $f,129,59,90,1
+
+$f.+ 91
+$yca[$n].move $f,-11,180,2
+
+$f.+ 71
+$yca[$n].die $f
+
+$f.- 153
+$n.+ 1
+
+goto L47 when $n<10
+#####################
+
+#左边小黄
+
+
+$f=810
+$yb.setPos $f,50,-11
+
+$f.+ 1
+$yb.move $f,50,59,2
+
+$f.+ 36
+
+L48:
+
+$a= 0
+
+L49:
+$yb.shootPolar $f,$rbb,$a
+$a.+ 30
+goto L49 when $a<360
+
+$f.+ 30
+$yb.shootTrace $f,$hb,0
+
+$f.+ 30
+goto L48 when $f<960
+
+$yb.move $f,50,-11,2
+
+$f.+ 36
+$yb.die $f
+
+##################
+
+#20个黄圆
+$f=850
+$n=0
+
+L50:
+$ycb[$n].setPos $f,50,59
+
+$f.+ 1
+$ycb[$n].move $f,171,59,-90,1
+
+$f.+ 91
+$ycb[$n].move $f,311,180,2
+
+$f.+ 71
+$ycb[$n].die $f
+
+$f.- 153
+$n.+ 1
+
+goto L50 when $n<10
+
+####################
+#3个小蓝
+$f=2740
+$n=0
+$x=50
+
+L51:
+
+$bg[$n].setPos $f,$x,-11
+
+$f.+ 1
+$bg[$n].move $f,$x,89,3
+
+$f.+ 51
+$bg[$n].move $f,311,89,2
+
+
+$c=0
+L55:
+$b=0
+L54:
+$a=0
+
+L53:
+$bg[$n].shootTrace $f,$rb,$a
+$a.+ 3
+goto L53 when $a<=3
+
+$b.+ 1
+$f.+ 5
+goto L54 when $b<3
+
+$c.+ 1
+$f.+ 15
+goto L55 when $c<3
+
+$f.+ 57
+$bg[$n].die $f
+
+$f.- 114
+$n.+ 1
+$x.+ 25
+goto L51 when $n<3
+
+
+################
+
+#2个绿色
+
+
+$f= 2750
+$n= 0
+
+L56:
+
+$gf[$n].setPos $f,200,-11
+
+$f.+ 1
+$gf[$n].move $f,200,371,2
+
+$f.+ 10
+$a= 0
+L57:
+$gf[$n].shootPolar $f,$rb,$a
+$a.+ 30
+goto L57 when $a<360
+
+$f.+ 190
+$gf[$n].die $f
+
+$f.- 176
+$n.+ 1
+
+goto L56 when $n<2
+
+#############
+#3个小蓝
+$f= 2810
+$n=0
+$x=250
+
+L58:
+
+$bh[$n].setPos $f,$x,-11
+
+$f.+ 1
+$bh[$n].move $f,$x,89,3
+
+$f.+ 51
+$bh[$n].move $f,-11,89,2
+
+
+$c=0
+L62:
+$b=0
+L61:
+$a=0
+
+L60:
+$bh[$n].shootTrace $f,$rb,$a
+$a.+ 3
+goto L60 when $a<=3
+
+$b.+ 1
+$f.+ 5
+goto L61 when $b<3
+
+$c.+ 1
+$f.+ 15
+goto L62 when $c<3
+
+$f.+ 57
+$bh[$n].die $f
+
+$f.- 114
+$n.+ 1
+$x.- 25
+goto L58 when $n<3
+
+#####################
+#左边小黄
+$f=2860
+
+$yc.setPos $f,50,-11
+
+$f.+ 1
+$yc.move $f,50,59,2
+
+$f.+ 36
+
+L64:
+
+$a= 0
+
+L63:
+$yc.shootPolar $f,$rbb,$a
+$a.+ 30
+goto L63 when $a<=360
+
+$f.+ 30
+$yc.shootTrace $f,$hb,0
+
+$f.+ 30
+goto L64 when $f<3300
+
+
+##################
+
+#20个黄圆
+$f=2900
+$n=0
+
+L65:
+$ycc[$n].setPos $f,50,59
+
+$f.+ 1
+$ycc[$n].move $f,171,59,-90,1
+
+$f.+ 91
+$ycc[$n].move $f,311,180,2
+
+$f.+ 71
+$ycc[$n].die $f
+
+$f.- 153
+$n.+ 1
+
+goto L65 when $n<10
+
+####################
+
+#右边小黄
+
+$f=2860
+$yd.setPos $f,250,-11
+
+$f.+ 1
+$yd.move $f,250,59,2
+
+$f.+ 36
+
+L66:
+
+$a= 0
+
+L68:
+$yd.shootPolar $f,$bb,$a
+$a.+ 30
+goto L68 when $a<360
+
+$f.+ 30
+$yd.shootTrace $f,$hb,0
+
+$f.+ 30
+goto L66 when $f<3300
+
+
+
+####################
+#20个黄圆
+$f=2900
+$n=0
+
+L67:
+$ycd[$n].setPos $f,250,59
+
+$f.+ 1
+$ycd[$n].move $f,129,59,90,1
+
+$f.+ 91
+$ycd[$n].move $f,-11,180,2
+
+$f.+ 71
+$ycd[$n].die $f
+
+$f.- 153
+$n.+ 1
+
+goto L67 when $n<10
+##################
+#清除4小黄
+$f=3240
+
+$yc.die $f
+$yd.die $f
+
+bul.clear $f
+
+##################3
+#BOSS出来，开始对话
+$f=3241
+$boss.setPos $f,-20,-32	
+$f.+ 1
+$boss.move $f,150,100,10
+
+
+################
+$f=6140
+$x= 150
+$y= 100
+$n=0
+
+L74:
+$boss.move $f,$x,$y,5
+$f.+ 30
+$zca[$n].setPos $f,$x,$y
+$zcd[$n].setPos $f,$x,$y
+$zcb[$n].setPos $f,$x,$y
+$zcc[$n].setPos $f,$x,$y
+
+$f.+ 1
+$x.+ 44
+$y.- 44
+$zca[$n].move $f,$x,$y,5
+$y.+ 88
+$zcc[$n].move $f,$x,$y,5
+$x.+ 4
+$y.- 57
+$zcd[$n].move $f,$x,$y,5
+$y.+ 26
+$zcb[$n].move $f,$x,$y,5
+$x.- 48
+$y.- 13
+
+$f.+ 11
+$zca[$n].move $f,0,180,122,2
+$zcd[$n].move $f,0,180,122,2
+$zcb[$n].move $f,0,180,122,2
+$zcc[$n].move $f,0,180,122,2
+
+$f.+ 1
+$boss.shootTrace $f,$rcir,0
+$boss.shootTrace $f,$rcir,15
+$boss.shootTrace $f,$rcir,-15
+
+$aa=120
+$ab=140
+$ac=160
+$ad=180
+$a=0
+L72:
+$zca[$n].shootPolar $f,$bbul,$aa
+$zcb[$n].shootPolar $f,$bbul,$ab
+$zcc[$n].shootPolar $f,$bbul,$ac
+$zcd[$n].shootPolar $f,$bbul,$ad
+
+$aa.+ 10
+$ab.+ 10
+$ac.+ 10
+$ad.+ 10
+$a.+ 1
+$f.+ 5
+goto L72 when $a<13
+
+$zca[$n].die $f
+$zcd[$n].die $f
+$zcb[$n].die $f
+$zcc[$n].die $f
+
+########
+
+$f.+ 30
+
+$zce[$n].setPos $f,$x,$y
+$zcf[$n].setPos $f,$x,$y
+$zcg[$n].setPos $f,$x,$y
+$zch[$n].setPos $f,$x,$y
+
+$f.+ 1
+$x.- 44
+$y.- 44
+$zce[$n].move $f,$x,$y,5
+$y.+ 88
+$zcg[$n].move $f,$x,$y,5
+$x.- 4
+$y.- 57
+$zch[$n].move $f,$x,$y,5
+$y.+ 26
+$zcf[$n].move $f,$x,$y,5
+$x.+ 48
+$y.- 13
+
+$f.+ 11
+$zce[$n].move $f,300,180,-122,2
+$zcf[$n].move $f,300,180,-122,2
+$zcg[$n].move $f,300,180,-122,2
+$zch[$n].move $f,300,180,-122,2
+
+$f.+ 1
+$boss.shootTrace $f,$rcir,0
+$boss.shootTrace $f,$rcir,15
+$boss.shootTrace $f,$rcir,-15
+
+$ae=240
+$af=220
+$ag=200
+$ah=180
+
+$a=0
+L73:
+$zce[$n].shootPolar $f,$rb,$ae
+$zcf[$n].shootPolar $f,$rb,$af
+$zcg[$n].shootPolar $f,$rb,$ag
+$zch[$n].shootPolar $f,$rb,$ah
+
+$ae.+ 10
+$af.+ 10
+$ag.+ 10
+$ah.+ 10
+$a.+ 1
+$f.+ 5
+goto L73 when $a<13
+
+$zce[$n].die $f
+$zcf[$n].die $f
+$zcg[$n].die $f
+$zch[$n].die $f
+################
+$n.+ 1
+$x.+ 50
+goto L74 when $n<2
+
+$x.- 100
+goto L74 when $n<3
+
+$x.+ 100
+$y.- 30
+goto L74 when $n<4
+
+
+
+
+
+###################
+
+$f=6930
+bul.clear $f
+
+###############
+
+$f=6940
+$boss.move $f,150,100,5
+
+$f.+ 30
+$zda.setPos $f,75,100
+$zdb.setPos $f,75,100
+$zdc.setPos $f,75,100
+
+$zea.setPos $f,225,100
+$zeb.setPos $f,225,100
+$zec.setPos $f,225,100
+
+$zfa.setPos $f,150,175
+$zfb.setPos $f,150,175
+$zfc.setPos $f,150,175
+$zfd.setPos $f,150,175
+
+$f.+ 10
+$zda.move $f,50,86,3
+$zdb.move $f,100,86,3
+$zdc.move $f,75,129,3
+
+$zea.move $f,200,86,3
+$zeb.move $f,250,86,3
+$zec.move $f,225,129,3
+
+$zfa.move $f,121,175,3
+$zfb.move $f,121,175,3
+$zfc.move $f,179,175,3
+$zfd.move $f,179,175,3
+
+$f.+ 20
+$zda.move $f,75,100,1850,3
+$zdb.move $f,75,100,1850,3
+$zdc.move $f,75,100,1850,3
+
+$zea.move $f,225,100,-1850,3
+$zeb.move $f,225,100,-1850,3
+$zec.move $f,225,100,-1850,3
+
+$zfa.move $f,150,175,1850,3
+$zfb.move $f,150,175,-1850,3
+$zfc.move $f,150,175,1850,3
+$zfd.move $f,150,175,-1850,3
+
+$da=300
+$db=60
+$dc=180
+
+$ea=300
+$eb=60
+$ec=180
+
+$fa=270
+$fb=270
+$fc=90
+$fd=90
+
+L80:
+$zda.shootPolar $f,$laser,$da
+$zdb.shootPolar $f,$laser,$db
+$zdc.shootPolar $f,$laser,$dc
+
+$zea.shootPolar $f,$laser,$ea
+$zeb.shootPolar $f,$laser,$eb
+$zec.shootPolar $f,$laser,$ec
+
+$zfa.shootPolar $f,$laser,$fa
+$zfb.shootPolar $f,$laser,$fb
+$zfc.shootPolar $f,$laser,$fc
+$zfd.shootPolar $f,$laser,$fd
+
+$da.+ 15
+$db.+ 15
+$dc.+ 15
+
+$ea.+ 15
+$eb.+ 15
+$ec.+ 15
+
+$fa.+ 15
+$fb.+ 15
+$fc.+ 15
+$fd.+ 15
+
+$f.+ 10
+goto L80 when $f<7590
+
+$f=7005
+L83:
+$a=0
+L81:
+$boss.shootPolar $f,$barow,$a
+$a.+ 40
+goto L81 when $a<360
+$f.+ 2
+
+$a=0
+L82:
+$boss.shootPolar $f,$barowb,$a
+$a.+ 40
+goto L82 when $a<360
+
+$f.+ 40
+goto L83 when $f<7590
+#####################
+#BOSS死
+$f=7580
+bul.clear $f
+$zda.die $f
+$zdb.die $f
+$zdc.die $f
+
+$zea.die $f
+$zeb.die $f
+$zec.die $f
+
+$zfa.die $f
+$zfb.die $f
+$zfc.die $f
+$zfd.die $f
+
+$f=7770
+$boss.move $f,150,-32,7
+$f=7858
+$boss.die $f
+
+###################
+$f=4700
+
+$f.+ 30
+$zdaz.setPos $f,75,100
+$zdbz.setPos $f,75,100
+$zdcz.setPos $f,75,100
+
+$zeaz.setPos $f,225,100
+$zebz.setPos $f,225,100
+$zecz.setPos $f,225,100
+
+$zfaz.setPos $f,150,175
+$zfbz.setPos $f,150,175
+$zfcz.setPos $f,150,175
+$zfdz.setPos $f,150,175
+
+$f.+ 10
+$zdaz.move $f,50,86,3
+$zdbz.move $f,100,86,3
+$zdcz.move $f,75,129,3
+
+$zeaz.move $f,200,86,3
+$zebz.move $f,250,86,3
+$zecz.move $f,225,129,3
+
+$zfaz.move $f,121,175,3
+$zfbz.move $f,150,146,3
+$zfcz.move $f,179,175,3
+$zfdz.move $f,150,204,3
+
+$f.+ 20
+$zdaz.move $f,75,100,1850,3
+$zdbz.move $f,75,100,1850,3
+$zdcz.move $f,75,100,1850,3
+
+$zeaz.move $f,225,100,-1850,3
+$zebz.move $f,225,100,-1850,3
+$zecz.move $f,225,100,-1850,3
+
+$zfaz.move $f,150,175,1850,3
+$zfbz.move $f,150,175,-1850,3
+$zfcz.move $f,150,175,1850,3
+$zfdz.move $f,150,175,-1850,3
+
+$da=270
+$daz=330
+$db=90
+$dbz=30
+$dc=150
+$dcz=210
+
+$ea=270
+$eaz=330
+$eb=90
+$ebz=30
+$ec=150
+$ecz=210
+
+$fa=225
+$faz=315
+$fb=45
+$fbz=315
+$fc=45
+$fcz=135
+$fd=135
+$fdz=225
+##################
+
+L85:
+$zdaz.shootPolar $f,$bbul,$da
+$zdbz.shootPolar $f,$bbul,$db
+$zdcz.shootPolar $f,$bbul,$dc
+
+$zeaz.shootPolar $f,$bbul,$ea
+$zebz.shootPolar $f,$bbul,$eb
+$zecz.shootPolar $f,$bbul,$ec
+
+$zfaz.shootPolar $f,$bbul,$fa
+$zfbz.shootPolar $f,$bbul,$fb
+$zfcz.shootPolar $f,$bbul,$fc
+$zfdz.shootPolar $f,$bbul,$fd
+#################
+$zdaz.shootPolar $f,$bbul,$daz
+$zdbz.shootPolar $f,$bbul,$dbz
+$zdcz.shootPolar $f,$bbul,$dcz
+
+$zeaz.shootPolar $f,$bbul,$eaz
+$zebz.shootPolar $f,$bbul,$ebz
+$zecz.shootPolar $f,$bbul,$ecz
+
+$zfaz.shootPolar $f,$bbul,$faz
+$zfbz.shootPolar $f,$bbul,$fbz
+$zfcz.shootPolar $f,$bbul,$fcz
+$zfdz.shootPolar $f,$bbul,$fdz
+
+###################
+$da.+ 30
+$db.+ 30
+$dc.+ 30
+
+$ea.+ 30
+$eb.+ 30
+$ec.+ 30
+
+$fa.+ 30
+$fb.+ 30
+$fc.+ 30
+$fd.+ 30
+
+$daz.+ 30
+$dbz.+ 30
+$dcz.+ 30
+
+$eaz.+ 30
+$ebz.+ 30
+$ecz.+ 30
+
+$faz.+ 30
+$fbz.+ 30
+$fcz.+ 30
+$fdz.+ 30
+
+$f.+ 10
+goto L85 when $f<5350
+
+#############
+$f=4765
+
+L86:
+
+
+$boss.shootTrace $f,$wbu[1],0
+
+$f.+ 80
+goto L86 when $f<5350
+
+#################
+$f=5360
+bul.clear $f
+
+$zdaz.die $f
+$zdbz.die $f
+$zdcz.die $f
+
+$zeaz.die $f
+$zebz.die $f
+$zecz.die $f
+
+$zfaz.die $f
+$zfbz.die $f
+$zfcz.die $f
+$zfdz.die $f
+
+##########################
+
+
+$wf = 1010
+bul.clear $wf
+$wb.setPos $wf,0,180
+#boss movement
+#1590 => 1050
+$wb.move $wf, 150,120,8
+$wf.+ 78
+#1690 => 1128-1148
+$wb.move $wf,220,90,4
+$wf.+ 40
+#1750 => 1168-1188
+$wb.move $wf,150,90,4
+$wf.+ 147
+#1970 => 1315-1335
+$wb.move $wf,120,60,2
+$wf.+ 40 
+#2030 => 1355-1375
+$wb.move $wf,70,90,3
+$wf.+ 145
+#2250 => 1500-1520
+$wb.move $wf,120,40,4
+$wf.+ 40
+#2310 => 1540-1560
+$wb.move $wf,70,50,3
+$wf.+ 145
+#2530 => 1685-1705
+$wb.move $wf,120,60,3
+$wf.+ 40
+#2590 => 1725-1745
+$wb.move $wf,70,90,3
+$wf.+ 40
+#2650 => 1765-1790
+$wb.move $wf, 150,120,4
+bul.clear $wf
+$wtsu.die $wf
+$wtsu2.die $wf
+
+#boss shoot 1600->1070
+$wf = 1050
+#1600 shoot,60s
+$wtt = 0
+Lw001j:
+	$wt = 0
+	Lw001i:
+		$wb.shootPolar $wf,$wbu[0],$wt
+		$wt.+ 18
+	goto Lw001i when $wt < 360
+	$wf.+ 40
+	$wtt.+ 1
+goto Lw001j when $wtt < 16
+
+#1720 shoot,60s*2*(220s*4)
+$wf = 1130
+$wttt = 0
+Lw002i:
+	$wtt = 0
+	Lw002j:
+		$wt = -10
+		Lw002k:
+			$wb.shootPolar $wf,$wbu[0],$wt
+			$wt.+ 5
+		goto Lw002k when $wt <= 10
+		$wf.+ 40
+		$wtt.+ 1
+	goto Lw002j when $wtt < 2
+	$wttt.+ 1
+	$wf.+ 100
+goto Lw002i when $wttt < 3
+#########################
+# now tsukaima
+# f 1630
+$wf = 1070
+$wtsu[0].setPos $wf,60,100
+$wtsu[1].setPos $wf,240,100
+$wtsu[2].setPos $wf,135,170
+$wtsu[3].setPos $wf,165,170
+$wt = 0
+Lw003i:
+	$wtt = 0
+	Lw003j:
+		$wtsu.shootPolar $wf,$wbu[1],$wtt
+		$wtt.+ 90
+	goto Lw003j when $wtt < 360
+	$wt.+ 1
+	$wf.+ 15
+goto Lw003i when $wt < 4
+$wt = 0
+$wtto = 0
+Lw004i:
+	$wtt = 0
+	$wtt.+ $wtto
+	$wttc = 0
+	Lw004j:
+		$wtsu.shootPolar $wf,$wbu[1],$wtt
+		$wtt.+ 90
+		$wttc.+ 1
+	goto Lw004j when $wttc < 4
+	$wt.+ 1
+	$wf.+ 20
+	$wtto.+ 15
+goto Lw004i when $wf < 1700
+$wf = 1255
+$wtsu2[0].setPos $wf,35,135
+$wtsu2[1].setPos $wf,265,135
+$wtsu2[2].setPos $wf,130,120
+$wtsu2[3].setPos $wf,160,120
+$wt = 0
+Lw005i:
+	$wtt = 0
+	Lw005j:
+		$wtsu2.shootPolar $wf,$wbu[1],$wtt
+		$wtt.+ 90
+	goto Lw005j when $wtt < 360
+	$wt.+ 1
+	$wf.+ 17
+goto Lw005i when $wf < 1700
+
+#############################
+# boss round 2
+# f = f(movie)-20
+$wf =1890
+#132,160 -> 18,-40
+$wb.move $wf,150,120,3
+$wf.+ 30
+# ^ 2870 => 1930
+# 3->big circle 4-> small circle
+$wtsu3.setPos $wf,150,120
+$wtsu4.setPos $wf,150,120
+#->2900 => 1945
+$wtsu3[0].move $wf,150,60,4
+$wtsu3[1].move $wf,95,150,4
+$wtsu3[2].move $wf,202,150,4
+$wtsu4[0].move $wf,115,100,4
+$wtsu4[1].move $wf,185,100,4
+$wtsu4[2].move $wf,150,160,4
+$wf.+ 15
+Lw006i:
+	$wtsu3[0].shootPolar $wf,$wbblue,30
+	$wtsu3[0].shootPolar $wf,$wbblue,-30
+	$wtsu3[1].shootPolar $wf,$wbblue,-150
+	$wtsu3[1].shootPolar $wf,$wbblue,-90
+	$wtsu3[2].shootPolar $wf,$wbblue,90
+	$wtsu3[2].shootPolar $wf,$wbblue,150
+	$wtsu4[0].shootPolar $wf,$wbblue,-90
+	$wtsu4[0].shootPolar $wf,$wbblue,-30
+	$wtsu4[1].shootPolar $wf,$wbblue,90
+	$wtsu4[1].shootPolar $wf,$wbblue,30
+	$wtsu4[2].shootPolar $wf,$wbblue,-150
+	$wtsu4[2].shootPolar $wf,$wbblue,150
+	$wf.+ 8
+goto Lw006i when $wf < 1958
+$wf = 1958
+# => to 3970 -> 2660
+# $wbbigp
+$wb2a1[12] = 0
+$wb2a1[0] = 30
+$wb2a1[1] = -30
+$wb2a1[2] = -150
+$wb2a1[3] = -90
+$wb2a1[4] = 90
+$wb2a1[5] = 150
+$wb2a1[6] = -90
+$wb2a1[7] = -30
+$wb2a1[8] = 90
+$wb2a1[9] = 30
+$wb2a1[10] = -150
+$wb2a1[11] = 150
+$wta = 0
+$wtsu3[0].move $wf,150,120,2140,3
+$wtsu3[1].move $wf,150,120,2140,3
+$wtsu3[2].move $wf,150,120,2140,3
+$wtsu4[0].move $wf,150,120,-2140,3
+$wtsu4[1].move $wf,150,120,-2140,3
+$wtsu4[2].move $wf,150,120,-2140,3
+Lw007i:
+	$wtsu3[0].shootPolar $wf,$wbblue,$wb2a1[0]
+	$wtsu3[0].shootPolar $wf,$wbblue,$wb2a1[1]
+	$wtsu3[1].shootPolar $wf,$wbblue,$wb2a1[2]
+	$wtsu3[1].shootPolar $wf,$wbblue,$wb2a1[3]
+	$wtsu3[2].shootPolar $wf,$wbblue,$wb2a1[4]
+	$wtsu3[2].shootPolar $wf,$wbblue,$wb2a1[5]
+	$wtsu4[0].shootPolar $wf,$wbblue,$wb2a1[6]
+	$wtsu4[0].shootPolar $wf,$wbblue,$wb2a1[7]
+	$wtsu4[1].shootPolar $wf,$wbblue,$wb2a1[8]
+	$wtsu4[1].shootPolar $wf,$wbblue,$wb2a1[9]
+	$wtsu4[2].shootPolar $wf,$wbblue,$wb2a1[10]
+	$wtsu4[2].shootPolar $wf,$wbblue,$wb2a1[11]
+	$wb2a1.+ 36
+	$wf.+ 12
+goto Lw007i when $wf < 2645
+$wf = 1958
+Lw008i:
+	$wt = 0
+	Lw008j:
+		$wb.shootTrace $wf,$wbbigp,0
+		$wb.shootTrace $wf,$wbbigp,120
+		$wb.shootTrace $wf,$wbbigp,240
+		$wt.+ 1
+		$wf.+ 3
+	goto Lw008j when $wt < 3
+	$wf.+ 60
+goto Lw008i when $wf < 2645
+$wf = 2645
+$wtsu3.die $wf
+$wtsu4.die $wf
+bul.clear $wf
+$wb.move $wf,150,-40,4
+$wf.+ 40
+$wb.die $wf
+
+
+# (3610)3900 -> (4330)4700
+# 150 100
+# boss 
+$wf = 3900
+$wtsu5x[6] = 0
+$wtsu5y[6] = 0
+$wtsu5x[0] = 130
+$wtsu5x[1] = 170
+$wtsu5x[2] = 110
+$wtsu5x[3] = 190
+$wtsu5x[4] = 130
+$wtsu5x[5] = 170
+$wtsu5y[0] = 65
+$wtsu5y[1] = 65
+$wtsu5y[2] = 100
+$wtsu5y[3] = 100
+$wtsu5y[4] = 135
+$wtsu5y[5] = 135
+$wi = 0
+Lw009i:
+	$wtsu5[$wi].setPos $wf,$wtsu5x[$wi],$wtsu5y[$wi]
+	$wi.+ 1
+goto Lw009i when $wi < 6
+# first movement
+$wf.+ 60
+# (3670->3700)
+$boss.move $wf,175,75,2
+$wtsu5x.+ 25
+$wtsu5y.- 25
+$wi = 0
+Lw010i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw010i when $wi < 6
+# (3710->3730)
+$wf.+ 40
+$boss.move $wf,150,50,2
+$wtsu5x.- 25
+$wtsu5y.- 25
+$wi = 0
+Lw011i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw011i when $wi < 6
+# (3740->3760)
+$wf.+ 30
+$boss.move $wf,125,75,2
+$wtsu5x.- 25
+$wtsu5y.+ 25
+$wi = 0
+Lw012i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw012i when $wi < 6
+# (3770->3790)
+$wf.+ 30
+$boss.move $wf,150,50,2
+$wtsu5x.+ 25
+$wtsu5y.- 25
+$wi = 0
+Lw013i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw013i when $wi < 6
+# (3810->3830)
+$wf.+ 40
+$boss.move $wf,125,75,2
+$wtsu5x.- 25
+$wtsu5y.+ 25
+$wi = 0
+Lw014i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw014i when $wi < 6
+# (3890->3920)
+$wf.+ 80
+$boss.move $wf,150,25,2
+$wtsu5x.+ 25
+$wtsu5y.- 50
+$wi = 0
+Lw015i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw015i when $wi < 6
+# (3930->3950)
+$wf.+ 30
+$boss.move $wf,125,50,2
+$wtsu5x.- 25
+$wtsu5y.+ 25
+$wi = 0
+Lw016i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw016i when $wi < 6
+# (3960->3980)
+$wf.+ 30
+$boss.move $wf,150,50,2
+$wtsu5x.+ 25
+$wi = 0
+Lw017i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw017i when $wi < 6
+# (3990->4020)
+$wf.+ 30
+$boss.move $wf,175,75,2
+$wtsu5x.+ 25
+$wtsu5y.+ 25
+$wi = 0
+Lw018i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw018i when $wi < 6
+# (4030->4050)
+$wf.+ 30
+$boss.move $wf,135,50,3
+$wtsu5x.- 40
+$wtsu5y.- 25
+$wi = 0
+Lw019i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],3
+	$wi.+ 1
+goto Lw019i when $wi < 6
+# (4120->4140)
+$wf.+ 90
+$boss.move $wf,160,25,2
+$wtsu5x.+ 25
+$wtsu5y.- 25
+$wi = 0
+Lw020i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw020i when $wi < 6
+# (4150->4170)
+$wf.+ 30
+$boss.move $wf,135,50,2
+$wtsu5x.- 25
+$wtsu5y.+ 25
+$wi = 0
+Lw021i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw021i when $wi < 6
+# (4180->4200)
+$wf.+ 30
+$boss.move $wf,150,100,3
+$wtsu5x.+ 15
+$wtsu5y.+ 50
+$wi = 0
+Lw022i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],3
+	$wi.+ 1
+goto Lw022i when $wi < 6
+# (4210->4230)
+$wf.+ 30
+$boss.move $wf,125,75,2
+$wtsu5x.- 25
+$wtsu5y.- 25
+$wi = 0
+Lw023i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],2
+	$wi.+ 1
+goto Lw023i when $wi < 6
+# (4250->4270)
+$wf.+ 40
+$boss.move $wf,165,90,3
+$wtsu5x.+ 40
+$wtsu5y.+ 15
+$wi = 0
+Lw024i:
+	$wtsu5[$wi].move $wf,$wtsu5x[$wi],$wtsu5y[$wi],3
+	$wi.+ 1
+goto Lw024i when $wi < 6
+# (4330)
+$wf.+ 79
+bul.clear $wf
+$wtsu5.die $wf
+
+######################
+# go back to shoot
+$wf = 2645
+$wi = 0
+$wj = 0
+$wk = 0
+$wl = 0
+$wa = 0
+Lw025i:
+	$wl = 0
+	Lw025j:
+		$wj = 0
+		$wj.+ $wa
+		$wk = 0
+		Lw025k:
+			$wtsu5.shootPolar $wf,$wbred,$wj
+			$wk.+ 1
+			$wj.+ 60
+		goto Lw025k when $wk < 6
+		$wl.+ 1
+		$wf.+ 15
+	goto Lw025j when $wl < 7
+	$wa.+ 15
+goto Lw025i when $wf < 4680
+
+
+
+
+######################
+# round 3
+# 5370(5714)->6140(6474)
+# ->(5740)
+$wf = 5370
+$boss.move $wf,100,75,2
+# ->(5760)
+$wf.+ 40
+$wtsu6x[12] = 0
+$wtsu6y[12] = 0
+$wtsu6x[0] = 60
+$wtsu6y[0] = 75
+$wtsu6x[1] = 80
+$wtsu6y[1] = 40
+$wtsu6x[2] = 120
+$wtsu6y[2] = 40
+$wtsu6x[3] = 140
+$wtsu6y[3] = 75
+$wtsu6x[4] = 120
+$wtsu6y[4] = 110
+$wtsu6x[5] = 80
+$wtsu6y[5] = 110
+$wtsu6x[6] = 40
+$wtsu6y[6] = 75
+$wtsu6x[7] = 70
+$wtsu6y[7] = 23
+$wtsu6x[8] = 130
+$wtsu6y[8] = 23
+$wtsu6x[9] = 160
+$wtsu6y[9] = 75
+$wtsu6x[10] = 130
+$wtsu6y[10] = 127
+$wtsu6x[11] = 70
+$wtsu6y[11] = 127
+
+$wi = 0
+Lw026i:
+	$wtsu6[$wi].setPos $wf,$wtsu6x[$wi],$wtsu6y[$wi]
+	$wi.+ 1
+goto Lw026i when $wi < 12
+# (5830->5850)
+$wf.+ 70
+$boss.move $wf,150,100,3
+$wtsu6x.+ 50
+$wtsu6y.+ 25
+$wi = 0
+Lw027i:
+	$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+	$wi.+ 1
+goto Lw027i when $wi < 12
+
+
+Lw034i:
+	# (5860->5880)
+	$wf.+ 30
+	$boss.move $wf,200,75,3
+	$wtsu6x.+ 50
+	$wtsu6y.- 25
+	$wi = 0
+	Lw028i:
+		$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+		$wi.+ 1
+	goto Lw028i when $wi < 12
+	# (5890->5910)
+	$wf.+ 30
+	$boss.move $wf,150,50,3
+	$wtsu6x.- 50
+	$wtsu6y.- 25
+	$wi = 0
+	Lw029i:
+		$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+		$wi.+ 1
+	goto Lw029i when $wi < 12
+	# (5920->5940)
+	$wf.+ 30
+	$boss.move $wf,200,50,3
+	$wtsu6x.+ 50
+	$wi = 0
+	Lw030i:
+		$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+		$wi.+ 1
+	goto Lw030i when $wi < 12
+	# (5940->5960)
+	$wf.+ 20
+	$boss.move $wf,150,50,3
+	$wtsu6x.- 50
+	$wi = 0
+	Lw031i:
+		$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+		$wi.+ 1
+	goto Lw031i when $wi < 12
+	# (6050->6070)
+	$wf.+ 110
+	$boss.move $wf,100,75,3
+	$wtsu6x.- 50
+	$wtsu6y.+ 25
+	$wi = 0
+	Lw032i:
+		$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+		$wi.+ 1
+	goto Lw032i when $wi < 12
+	# (6050->6070)
+	$wf.+ 20
+	$boss.move $wf,150,100,3
+	$wtsu6x.+ 50
+	$wtsu6y.+ 25
+	$wi = 0
+	Lw033i:
+		$wtsu6[$wi].move $wf,$wtsu6x[$wi],$wtsu6y[$wi],3
+		$wi.+ 1
+	goto Lw033i when $wi < 12
+goto Lw034i when $wf < 6140
+$wf = 6139
+$wtsu6.die $wf
+bul.clear $wf
+
+######## shoot ##########
+$wf = 5410
+$wi = 0
+$wj = 0
+$wk = 0
+$wl = 0
+$wa = 0
+Lw035i:
+# first 5 straight, 15 turn 4 degrees
+	$wl = 0
+	$wa = 0
+	Lw035j:
+		$wj = 0
+		$wj.+ $wa
+		$wk = 0
+		Lw035k:
+			$wi = 0
+			Lw035m:
+				$wtsu6[$wk].shootPolar $wf,$wbred,$wj
+				$wj.+ 120
+				$wi.+ 1
+			goto Lw035m when $wi < 3
+			$wk.+ 1
+		goto Lw035k when $wk < 6
+		$wf.+ 6
+		$wj = 0
+		$wj.+ $wa
+		$wk = 6
+		Lw035l:
+			$wi = 0
+			Lw035n:
+				$wtsu6[$wk].shootPolar $wf,$wbred,$wj
+				$wj.+ 72
+				$wi.+ 1
+			goto Lw035n when $wi < 5
+			$wk.+ 1
+		goto Lw035l when $wk < 12
+		$wl.+ 1
+		$wf.+ 9
+	goto Lw035j when $wl < 5
+	$wa.+ 15
+	goto Lw035j when $wl < 20
+goto Lw035i when $wf < 6120

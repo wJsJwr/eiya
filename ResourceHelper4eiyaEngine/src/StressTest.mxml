@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		   xmlns:mx="library://ns.adobe.com/flex/mx" width="100%" height="100%" label="Stress Test">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<fx:Script>
+		<![CDATA[
+			import com.eiyaScript.*;
+			import com.hurlant.eval.ByteLoader;
+			import com.hurlant.eval.CompiledESC;
+			import com.hurlant.eval.Debug;
+			import com.hurlant.eval.dump.ABCDump;
+			
+			import flash.display.*;
+			import flash.events.Event;
+			import flash.filesystem.*;
+			import flash.geom.Rectangle;
+			import flash.net.FileFilter;
+			import flash.ui.Keyboard;
+			import flash.utils.ByteArray;
+			
+			import mx.controls.Alert;
+			import mx.core.BitmapAsset;
+			import mx.events.ItemClickEvent;
+			import mx.utils.Base64Decoder;
+			import mx.utils.Base64Encoder;
+			
+			private var stress:Stress = null;
+			
+			protected function bTest_onClick(event:MouseEvent):void {
+				if (!this.tStress.text.match(/^\d+$/)) {
+					
+					Alert.show("Plz enter a integer");
+				} else {
+					stage.frameRate = 30;
+					iStage.removeChildren();
+					if (stress != null) stress.disposev2();
+					stress = new Stress(int(tStress.text),cSmooth.selected);
+					stress.x = 0;
+					stress.y = 0;
+					iStage.addChild(stress);
+				}
+			}
+			
+		]]>
+	</fx:Script>
+	<mx:Canvas left="10" right="10" height="100%">
+		<mx:VBox width="100%" height="100%" horizontalAlign="center" verticalAlign="middle">
+			
+			<mx:Canvas borderColor="0xEE11EE" borderStyle="solid" width="310" height="370">
+				<mx:Image id="iStage" left="2" top="2" width="300" height="360" />
+			</mx:Canvas>
+			<mx:Canvas width="310" height="25">
+				<mx:TextInput left="3" right="205" top="2" id="tStress" />
+				<mx:Button label="Test!" right="103" width="100" top="2" id="bTest" click="bTest_onClick(event)" />
+				<mx:CheckBox label="Smooth" right="3" width="97" top="2" id="cSmooth" />
+			</mx:Canvas>
+		</mx:VBox>
+	</mx:Canvas>
+	
+</mx:Canvas>

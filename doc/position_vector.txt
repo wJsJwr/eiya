@@ -1,0 +1,64 @@
+﻿pos[i][j] 
+0: x
+1: y
+2: a
+3: dx
+4: dy
+5: w || target_id
+6: bmp
+7: cx
+8: cy
+9: width || type(0:point,1:power,2:bomb)
+10: height || value
+11: hr
+12: toc
+13: alpha
+14: frame
+
+*  the structure of the final script for excution
+	 *  Vector[index,[index,[index,value]]]
+	 *           |      |         |
+	 *       frame just a index   |- 0 -> target
+	 *                            |- 1 -> action
+	 *                            |         |- 0x00 -> static (first show)
+	 *                            |         |- 0x01 -> standard
+	 *                            |         |- 0x02 -> load (bullet static)
+	 *                            |         |- 0x03 -> load (bullet standard)
+	 *                            |         |- 0x04 -> aim
+	 *                            |         |- 0x08 -> die
+	 *                            |         |- 0x10 -> clear
+	 *                            |
+	 *                            |- 2 -> x
+	 *                            |- 3 -> y
+	 *                            |- 4 -> rotation
+	 *                            |- 5 -> dx
+	 *                            |- 6 -> dy
+	 *                            |- 7 -> dw
+	 *                            |- 8 -> res_idx (bul...)
+	 *                                   (index of res_id, or slib_id)
+	 *  structure of the rlib
+	 *  Vector[index][index]=data
+	 *           |       |
+	 *         target    |- BMP
+	 *                   |   |- 0 -> cx
+	 *                   |   |- 1 -> cy
+	 *                   |   |- 2 -> width
+	 *                   |   |- 3 -> height
+	 *                   |   |- 4 -> bmpid
+	 *                   |
+	 *                   |- MON
+	 *                   |   |- 0 -> bmp
+	 *                   |   |- 1 -> hit range
+	 *                   |   |- 2 -> life
+	 *                   |   |- 3 -> point
+	 *                   |   |- 4 -> power
+	 *                   |   |- 5 -> bomb
+	 *                   |   |- 6 -> sc
+	 *                   |   |- 7 -> toc
+	 *                   |   
+	 *                   |
+	 *                   |- BUL
+	 *                   |   |- 0 -> bmp
+	 *                   |   |- 1 -> hit range
+	 *                   |   |- 2 -> round
+	 *                   |   |- 3 -> speed
